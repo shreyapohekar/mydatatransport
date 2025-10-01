@@ -9,8 +9,8 @@
 This library is for internal Google use only. It allows the logging of data and
 telemetry from Google SDKs.
 
-## Integration Testing
-These instructions apply to minor and patch version updates. Major versions need
+## Integration Testingsss
+These instructions apply to minor and patch version updates. Major versions needa
 a customized adaptation.
 
 After the CI is green:
