@@ -19,37 +19,14 @@ concurrency:
 jobs:
   manage_test_results:
     if: github.event.action == 'synchronize' || github.event.action == 'opened' || github.event.pull_request.merged
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
-    - uses: ruby/setup-ruby@v1
-    - uses: actions/download-artifact@v4.1.7
-      id: download
-      with:
-        path: /Users/runner/test
-    - name: Setup Scripts Directory
-      run: ./setup-scripts.sh
-    - name: Access to Metrics Service
-      if:  ${{ env.METRICS_SERVICE_SECRET }}
-      run: |
-        # Install gcloud sdk
-        curl https://sdk.cloud.google.com > install.sh
-        bash install.sh --disable-prompts
-        echo "${HOME}/google-cloud-sdk/bin/" >> $GITHUB_PATH
-        export PATH="${HOME}/google-cloud-sdk/bin/:${PATH}"
-
-        # Activate the service account for Metrics Service.
-        scripts/decrypt_gha_secret.sh scripts/gha-encrypted/metrics_service_access.json.gpg \
-        metrics-access.json "${{ env.METRICS_SERVICE_SECRET }}"
-        gcloud auth activate-service-account --key-file metrics-access.json
-    - name: Build code coverage tool
-      run: |
-        swift build --package-path firebase-ios-sdk/scripts/health_metrics/generate_code_coverage_report/
-        cat $GITHUB_EVENT_PATH
+   
     - name: Generate report
-      if: github.event.pull_request.merged != true && env.METRICS_SERVICE_SECRET
+      if: github.event.pull_request.merged != true
       env:
         pr_branch: ${{ github.event.pull_request.head.ref }}
       run: |
