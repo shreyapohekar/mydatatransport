@@ -11,7 +11,7 @@ telemetry from Google SDKs.
 
 ## Integration Testingsss
 These instructions apply to minor and patch version updates. Major versions need
-a customized adaptation.
+a customized adaptation.a
 
 After the CI is green:
 * Determine the next version for release by checking the
