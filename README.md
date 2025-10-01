@@ -9,7 +9,7 @@
 This library is for internal Google use only. It allows the logging of data and
 telemetry from Google SDKs.
 
-## Integration Testing
+## Integration Testingsss
 These instructions apply to minor and patch version updates. Major versions need
 a customized adaptation.
 
