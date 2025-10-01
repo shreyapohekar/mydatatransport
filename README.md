@@ -4,7 +4,7 @@
 
 [![Actions Status][gh-datatransport-badge]][gh-actions]
 
-# GoogleDataTransport
+# GoogleDataTransports
 
 This library is for internal Google use only. It allows the logging of data and
 telemetry from Google SDKs.
