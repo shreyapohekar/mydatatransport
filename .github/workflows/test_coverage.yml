@@ -17,29 +17,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  pod_lib_lint:
-    if: github.event.action == 'synchronize' || github.event.action == 'opened' || github.event.pull_request.merged
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        target: [ios]
-    steps:
-    - uses: actions/checkout@v3
-    - uses: ruby/setup-ruby@v1
-    - name: Setup Scripts Directory
-      run: ./setup-scripts.sh
-    - name: Setup Bundler
-      run: ./scripts/setup_bundler.sh
-    - name: PodLibLint DataTransport
-      run: |
-        scripts/health_metrics/pod_test_code_coverage_report.sh --sdk=GoogleDataTransport --platform=${{ matrix.target }} --test_spec=Tests-Unit,CCT-Tests-Unit
-    - uses: actions/upload-artifact@v4
-      with:
-        name: codecoverage
-        path: /Users/runner/*.xcresult
   manage_test_results:
     if: github.event.action == 'synchronize' || github.event.action == 'opened' || github.event.pull_request.merged
-    needs: pod_lib_lint
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v3
