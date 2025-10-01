@@ -16,7 +16,7 @@ a customized adaptation.
 After the CI is green:
 * Determine the next version for release by checking the
   [tagged releases](https://github.com/google/GoogleDataTransport/tags).
-  Ensure that the next release version keeps the Swift PM and CocoaPods versions in sync.
+  Ensure that the next release version keeps the Swift PM and CocoaPods versions in sync.a
 * Verify that the releasing version is the latest entry in the [CHANGELOG.md](CHANGELOG.md),
   updating it if necessary.
 * Update the version in the podspec to match the latest entry in the [CHANGELOG.md](CHANGELOG.md)
