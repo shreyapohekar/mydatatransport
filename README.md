@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/cocoapods/l/GoogleDataTransport.svg?style=flat)](https://cocoapods.org/pods/GoogleDataTransport)
 [![Platform](https://img.shields.io/cocoapods/p/GoogleDataTransport.svg?style=flat)](https://cocoapods.org/pods/GoogleDataTransport)
 
-[![Actions Status][gh-datatransport-badge]][gh-actions]
+[![Actions Status][gh-datatransport-badge]][gh-actions]a
 
 # GoogleDataTransport
 
